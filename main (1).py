@@ -1,18 +1,20 @@
-# Leap year 
+# Linear Search in Python
 
-"""
-year % 4 == 0 &
-year % 100 != /
-year % 400 == 0
 
-"""
-def isLeapYear(year):
-  if (year % 4 == 0 and year % 100    != 0) or year % 400 == 0:
-    return True
-  else:
-    return False
-year = int(input("Enter a year : "))
-if isLeapYear(year):
-  print("{} is a leap          year.".format(year))
+def linearSearch(array, n, x):
+
+  # Going through array sequencially
+  for i in range(0, n):
+    if (array[i] == x):
+      return i
+  return -1
+
+
+array = [2, 4, 0, 1, 9]
+x = 1
+n = len(array)
+result = linearSearch(array, n, x)
+if (result == -1):
+  print("Element not found")
 else:
-  print("{} is not a leap           year.".format(year))
+  print("Element found at index: ", result)

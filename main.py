@@ -1,24 +1,36 @@
-# 1.1 Implement a recursive function to calculate  the factorial of a given number.
+# Python3 program to calculate the CGPA
+# and CGPA percentage of a student
+def CgpaCalc(marks, n):
 
-"""
-1!=1*1
-2!=2*1!--->2*1
-3!=3*2!--->3*2*1
-.
-.
-10!=10*9!--->10*9*8*7*6*5*4*3*2*1
+  # Variable to store the grades in
+  # every subject
+  grade = [0] * n
 
-formula=n*(n-1)!
-"""
+  # Variables to store CGPA and the
+  # sum of all the grades
+  Sum = 0
+
+  # Computing the grades
+  for i in range(n):
+    grade[i] = (marks[i] / 10)
+
+  # Computing the sum of grades
+  for i in range(n):
+    Sum += grade[i]
+
+  # Computing the CGPA
+  cgpa = Sum / n
+
+  return cgpa
 
 
-def fact_rec(n):
- if n==0 or n==1: 
-   return 1
- else:
-   return n*fact_rec(n-1)
+# Driver code
+n = 5
+marks = [90, 80, 70, 80, 90]
 
-number =int(input("Enter a value:"))
-res =fact_rec(number)
+cgpa = CgpaCalc(marks, n)
 
-print("The factorial of {} is    {}".format(number,res))
+print("CGPA = ", '%.1f' % cgpa)
+print("CGPA Percentage = ", '%.2f' % (cgpa * 9.5))
+
+# This code is contributed by divyeshrabadiya07
